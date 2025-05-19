@@ -1,6 +1,7 @@
 import Navbar from './Components/Navbar.jsx'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import Home from './Pages/Home.jsx'
+import { Toaster } from 'react-hot-toast'
 
 export default function App() {
 
@@ -9,6 +10,9 @@ export default function App() {
   return (
     <>
       {isSellerPath ? null : <Navbar />}
+
+      <Toaster />
+
       <div className={`${isSellerPath ? "" : ""}`}>
         <Routes>
           <Route path='/' element={<Home />} />
