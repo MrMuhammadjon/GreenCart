@@ -21,17 +21,16 @@ export const AppContextProvider = ({ children }) => {
         setProducts(dummyProducts)
     }
 
-    const addToCatr = (itemId) => {
-        let cartData = structuredClone(cartItems)
+    const addToCart = (itemId) => {
+        let cartData = structuredClone(cartItems);
         if (cartData[itemId]) {
             cartData[itemId] += 1;
-
         } else {
-            cartData[itemId] = 1
+            cartData[itemId] = 1;
         }
         setCartItems(cartData);
-        toast.success("Added to Cart")
-    }
+        toast.success("Added to Cart");
+    };
 
     const updateCartItem = (itemId, quantity) => {
         let cartData = structuredClone(cartItems);
@@ -41,14 +40,16 @@ export const AppContextProvider = ({ children }) => {
     }
 
     const removeFromCart = (itemId) => {
-        let cartData = structuredClone(cartItems)
+        let cartData = structuredClone(cartItems);
         if (cartData[itemId]) {
             cartData[itemId] -= 1;
             if (cartData[itemId] === 0) {
-                delete cartData[itemId]
+                delete cartData[itemId];
             }
-        } toast.success("Removed from Cart")
-    }
+            setCartItems(cartData);
+            toast.success("Removed from Cart");
+        }
+    };
 
     useEffect(() => {
         fetchProducts()
@@ -57,7 +58,7 @@ export const AppContextProvider = ({ children }) => {
 
     const value = {
         navigate, user, setuser, isSeller, setIsSeller, showUserLogin, setShowUserLogin, products,
-        currency, addToCatr, updateCartItem, removeFromCart, cartItems
+        currency, addToCart, updateCartItem, removeFromCart, cartItems
     }
 
     return <AppContext.Provider value={value}>

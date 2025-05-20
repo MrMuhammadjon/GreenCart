@@ -4,7 +4,7 @@ import { useAppContext } from '../context/AppContext';
 
 const Products = ({ product }) => {
     const [count, setCount] = React.useState(0);
-    const { currency, addToCatr, removeFromCart, cartItems, navigate } = useAppContext()
+    const { currency, addToCart, removeFromCart, cartItems, navigate } = useAppContext()
     return product && (
         <>
 
@@ -30,7 +30,7 @@ const Products = ({ product }) => {
                         <div onClick={(e) => { e.stopPropagation(); }} className="text-green-500">
                             {!cartItems[product._id] ? (
                                 <button className="flex items-center justify-center gap-1 bg-indigo-100 border border-green-300 md:w-[80px] w-[70px] h-[36px] rounded text-green-600 font-medium cursor-pointer"
-                                    onClick={() => addToCatr(product._id)} >
+                                    onClick={() => addToCart(product._id)} >
                                     <img src={assets.cart_icon} alt="cart_icon" className='w-6' />
                                     Add
                                 </button>
@@ -40,7 +40,7 @@ const Products = ({ product }) => {
                                         -
                                     </button>
                                     <span className="w-5 text-center">{cartItems[product._id]}</span>
-                                    <button onClick={() => {addToCatr(product._id)}} className="cursor-pointer text-md px-2 h-full" >
+                                    <button onClick={() => {addToCart(product._id)}} className="cursor-pointer text-md px-2 h-full" >
                                         +
                                     </button>
                                 </div>
