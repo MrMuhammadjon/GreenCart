@@ -5,8 +5,8 @@ const BottomBanner = () => {
   return (
     <>
       <div className="mt-24 relative">
-        <img src={assets.bottom_banner_image} alt="Banner" className='w-full hidden md:block' />
-        <img src={assets.bottom_banner_image_sm} alt="Mannser-sm" className='h-[10%] md:hidden' />
+        <img src={assets.bottom_banner_image} alt="Banner" className='w-[90%] m-auto hidden md:block' />
+        <img src={assets.bottom_banner_image_sm} alt="Mannser-sm" className='w-[90%] m-auto md:hidden' />
 
         <div className="inset-0 absolute flex flex-col items-center md:items-end
           md:justify-center pt-16 md:pt-0 md:pr-24">

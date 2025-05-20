@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+
+#underlineFooter {
+    position: relative;
+    width: 100%;
+}
+
+#underlineFooter::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 20px;
+    content: "";
+    height: 2px;
+    background-color: green;
+    width: 0%;
+    transition: 0.3s;
+}
+
+#underlineFooter:hover::before {
+    width: 100%;
+}
