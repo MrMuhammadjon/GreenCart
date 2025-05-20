@@ -63,20 +63,20 @@ const MainBanner = () => {
                 {/* Arrow tugmalar */}
                 <button
                     onClick={prevSlide}
-                    className="z-[10] absolute top-1/2 left-4 transform -translate-y-1/2 bg-black opacity-60 cursor-pointer text-white px-3 py-2 rounded-full hover:bg-opacity-60"
+                    className="z-[1] absolute top-1/2 left-4 transform -translate-y-1/2 bg-black opacity-60 cursor-pointer text-white px-3 py-2 rounded-full hover:bg-opacity-60"
                 >
                     <div className="w-5 h-5 rounded-full bg-white"></div>
                 </button>
                 <button
                     onClick={nextSlide}
-                    className="z-[10] absolute top-1/2 right-4 transform -translate-y-1/2 bg-black opacity-60 cursor-pointer text-white px-3 py-2 rounded-full hover:bg-opacity-60"
+                    className="z-[1] absolute top-1/2 right-4 transform -translate-y-1/2 bg-black opacity-60 cursor-pointer text-white px-3 py-2 rounded-full hover:bg-opacity-60"
                 >
                     <div className="w-5 h-5 rounded-full bg-white"></div>
 
                 </button>
 
                 {/* Dots */}
-                <div className="absolute z-[100] bottom-4 w-full flex justify-center gap-2">
+                <div className="absolute z-[10] bottom-4 w-full flex justify-center gap-2">
                     {slides.map((_, index) => (
                         <button
                             key={index}

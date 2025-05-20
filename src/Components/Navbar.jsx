@@ -28,7 +28,7 @@ export default function Navbar() {
             {
                 reklamInfo.map((item, index)=>{
                     return(
-                        <p className='text-white'>
+                        <p key={index} className='text-white'>
                             {item.title}
                         </p>
                     )
@@ -85,7 +85,7 @@ export default function Navbar() {
                 </button>
 
                 {open && (
-                    <div className={`${open ? 'flex' : 'hidden'} absolute top-[90px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden z-40`}>
+                    <div className={`${open ? 'flex' : 'hidden'} absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden z-40`}>
                         <NavLink className='hover:bg-gray-100 w-full' to='/' onClick={() => setOpen(false)}>Home</NavLink>
                         <NavLink className='hover:bg-gray-100 w-full' to='/product' onClick={() => setOpen(false)}>All Product</NavLink>
                         {
