@@ -13,28 +13,32 @@ export default function Navbar() {
     ]
 
     const { user, setuser, setShowUserLogin, navigate } = useAppContext()
+
     const logout = async () => {
         setuser(null);
         navigate('/')
     }
 
     const reklamInfo = [
-        {id: 1, title:"50% Big discount for our first guests"}
+        { id: 1, title: "50% Big discount for our first guests" }
     ]
 
     return (
         <>
-        <div className="w-full h-8 flex items-center justify-center bg-green-600">
-            {
-                reklamInfo.map((item, index)=>{
-                    return(
-                        <p key={index} className='text-white'>
-                            {item.title}
-                        </p>
-                    )
-                })
-            }
-        </div>
+            <div className="w-full h-13 flex items-center justify-center bg-green-500">
+                {
+                    reklamInfo.map((item, index) => {
+                        return (
+                            <div key={index} className="flex items-center space-x-2.5  rounded-full p-1 text-sm">
+                                <div className="flex items-center space-x-1 bg-white text-green-600 rounded-3xl px-3 py-1">
+                                    <p>Exclusive Offer</p>
+                                </div>
+                                <p className="pr-3 text-white">{item.title}</p>
+                            </div>
+                        )
+                    })
+                }
+            </div>
             <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white transition-all top-0 sticky z-49">
 
                 <NavLink to="/" onClick={() => setOpen(false)}>
@@ -65,7 +69,7 @@ export default function Navbar() {
                     </div>
 
                     {!user ? (
-                        <button className="cursor-pointer px-8 py-2 bg-green-600 hover:bg-indigo-600 transition text-white rounded-full font-medium">
+                        <button onClick={()=> setShowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-green-600 hover:bg-indigo-600 transition text-white rounded-full font-medium">
                             Login
                         </button>
                     ) : (
