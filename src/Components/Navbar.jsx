@@ -19,7 +19,7 @@ export default function Navbar() {
         navigate('/')
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         if (searchQuery.length > 0) {
             navigate("/product")
         }
@@ -28,6 +28,8 @@ export default function Navbar() {
     const reklamInfo = [
         { id: 1, title: "50% Big discount for our first guests" }
     ]
+
+    const [showDropdown, setShowDropdown] = React.useState(false);
 
     return (
         <>
@@ -75,16 +77,27 @@ export default function Navbar() {
                     </div>
 
                     {!user ? (
-                        <button onClick={()=> setShowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-green-600 hover:bg-indigo-600 transition text-white rounded-full font-medium">
+                        <button onClick={() => setShowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-green-600 hover:bg-indigo-600 transition text-white rounded-full font-medium">
                             Login
                         </button>
                     ) : (
-                        <div className="relative group">
-                            <img src={assets.profile_icon} className='w-15' alt="" />
-                            <ul className='hidden group-hover:block absolute top-15 right-0 bg-white shadow border border-b-gray-200 w-30 rounded-md text-sm z-40'>
-                                <li className='p-1.5 pl-3 hover:bg-gray-200 cursor-pointer flex gap-1' onClick={() => navigate('my-orders')}><img src={assets.cart_icon} alt='cart-icon' /> My Orders</li>
-                                <li className='p-1.5 pl-3 hover:bg-gray-200 cursor-pointer flex gap-1' onClick={() => navigate('setting')}><img src={assets.green_setting_icon} className='w-5' />Setting</li>
-                                <li className='p-1.5 pl-3 hover:bg-gray-200 cursor-pointer flex gap-1' onClick={logout}><img src={assets.remove_icon} />Logout</li>
+                        <div className="relative">
+                            <img
+                                src={assets.profile_icon}
+                                className='w-10 cursor-pointer'
+                                alt=""
+                                onClick={() => setShowDropdown(prev => !prev)}
+                            />
+                            <ul className={`${showDropdown ? 'block' : 'hidden'} absolute top-12 right-0 bg-white shadow border border-b-gray-200 w-40 rounded-md text-sm z-40`}>
+                                <li className='p-1.5 pl-3 hover:bg-gray-200 cursor-pointer flex gap-2 items-center' onClick={() => { setShowDropdown(false); navigate('my-orders'); }}>
+                                    <img src={assets.cart_icon} alt='cart-icon' className='w-4 h-4' /> My Orders
+                                </li>
+                                <li className='p-1.5 pl-3 hover:bg-gray-200 cursor-pointer flex gap-2 items-center' onClick={() => { setShowDropdown(false); navigate('setting'); }}>
+                                    <img src={assets.green_setting_icon} className='w-5 h-5' alt='setting' /> Setting
+                                </li>
+                                <li className='p-1.5 pl-3 hover:bg-gray-200 cursor-pointer flex gap-2 items-center' onClick={() => { setShowDropdown(false); logout(); }}>
+                                    <img src={assets.remove_icon} className='w-4 h-4' alt='logout' /> Logout
+                                </li>
                             </ul>
                         </div>
                     )}
@@ -112,7 +125,7 @@ export default function Navbar() {
                                 Login
                             </button>) :
                             (
-                                <button onClick={() => logout} className="cursor-pointer px-6 py-2 mt-2 bg-green-600 hover:bg-indigo-600 transition text-white rounded-full text-sm">
+                                <button onClick={() => logout} className="cursor-pointer px-6 py-2 mt-2 bg-red-600 hover:bg-indigo-600 transition text-white rounded-full text-sm">
                                     Logout
                                 </button>
                             )
