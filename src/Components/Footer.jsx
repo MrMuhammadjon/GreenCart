@@ -3,7 +3,7 @@ import { assets, footerLinks } from '../assets/assets/assets'
 
 const Footer = () => {
     return (
-        <div className='text-gray-500/80 pt-8 px-6 md:px-16 lg:px-24 xl:px-32 mt-20'>
+        <div className='text-gray-500/80 pt-8 mt-20 w-[90%] m-auto'>
             <div className='flex flex-wrap justify-between gap-12 md:gap-6'>
                 <div className='max-w-80'>
                     <img src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/dummyLogo/dummyLogoColored.svg" alt="logo" className='mb-4 h-8 md:h-9' />

@@ -12,7 +12,7 @@ export default function Navbar() {
         { id: 3, title: 'Contact', link: '/contcat' }
     ]
 
-    const { user, setuser, setShowUserLogin, navigate } = useAppContext()
+    const { user, setuser, setShowUserLogin, navigate, searchQuery, setSearchQuery } = useAppContext()
 
     const logout = async () => {
         setuser(null);
