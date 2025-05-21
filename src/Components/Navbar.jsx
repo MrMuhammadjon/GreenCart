@@ -125,7 +125,10 @@ export default function Navbar() {
                                 Login
                             </button>) :
                             (
-                                <button onClick={() => logout} className="cursor-pointer px-6 py-2 mt-2 bg-red-600 hover:bg-indigo-600 transition text-white rounded-full text-sm">
+                                <button onClick={() => {
+                                    setOpen(false);
+                                    logout();
+                                }} className="cursor-pointer px-6 py-2 mt-2 bg-red-600 hover:bg-indigo-600 transition text-white rounded-full text-sm">
                                     Logout
                                 </button>
                             )

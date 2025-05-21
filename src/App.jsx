@@ -6,6 +6,7 @@ import Footer from './Components/Footer.jsx'
 import { AppContext, useAppContext } from './context/AppContext.jsx'
 import Login from './Components/Login.jsx'
 import AllProduct from './Pages/AllProduct.jsx'
+import ProductCategory from './Pages/ProductCategory.jsx'
 
 export default function App() {
 
@@ -23,7 +24,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/product' element={<AllProduct />} />
-
+          <Route path='/product/:category' element={<ProductCategory />} />
         </Routes>
       </div>
 
