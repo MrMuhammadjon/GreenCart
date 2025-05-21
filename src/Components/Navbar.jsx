@@ -8,7 +8,7 @@ export default function Navbar() {
 
     const headLink = [
         { id: 1, title: 'Home', link: '/' },
-        { id: 2, title: 'Product', link: '/product' },
+        { id: 2, title: 'All Product', link: '/product' },
         { id: 3, title: 'Contact', link: '/contcat' }
     ]
 

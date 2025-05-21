@@ -12,7 +12,7 @@ const BestSeller = () => {
                 <h1 className='text-2xl md:text3xl font-medium text-green-600'>Best Seller</h1>
                 <div className="w-[100%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-6 lg:grid-cols-5  gap-3">
                     {
-                        products.filter((product) => product.inStock).map((product, index) => (
+                        products.filter((product) => product.inStock).slice(0, 15).map((product, index) => (
                             <Products key={index} product={product} />
                         ))
                     }

@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast'
 import Footer from './Components/Footer.jsx'
 import { AppContext, useAppContext } from './context/AppContext.jsx'
 import Login from './Components/Login.jsx'
+import AllProduct from './Pages/AllProduct.jsx'
 
 export default function App() {
 
@@ -21,6 +22,7 @@ export default function App() {
       <div className={`${isSellerPath ? "" : ""}`}>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/product' element={<AllProduct />} />
 
         </Routes>
       </div>
