@@ -1,12 +1,15 @@
 import React from 'react'
 import { assets, footerLinks } from '../assets/assets/assets'
+import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
     return (
         <div className='text-gray-500/80 pt-8 mt-20 w-[90%] m-auto'>
             <div className='flex flex-wrap justify-between gap-12 md:gap-6'>
                 <div className='max-w-80'>
-                    <img src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/dummyLogo/dummyLogoColored.svg" alt="logo" className='mb-4 h-8 md:h-9' />
+                    <NavLink to='/'>
+                        <img src={assets.logo} alt="logo" className='mb-4 h-8 md:h-9' />
+                    </NavLink>
                     <p className='text-sm'>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
                     </p>

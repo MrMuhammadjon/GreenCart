@@ -7,16 +7,17 @@ import { AppContext, useAppContext } from './context/AppContext.jsx'
 import Login from './Components/Login.jsx'
 import AllProduct from './Pages/AllProduct.jsx'
 import ProductCategory from './Pages/ProductCategory.jsx'
+import ProductsDetalis from './Pages/ProductsDetalis.jsx'
 
 export default function App() {
 
   const isSellerPath = useLocation().pathname.includes("seller")
-  const {showUserLogin} = useAppContext()
+  const { showUserLogin } = useAppContext()
 
   return (
     <>
       {isSellerPath ? null : <Navbar />}
-      {showUserLogin ? <Login/> : null}
+      {showUserLogin ? <Login /> : null}
 
       <Toaster />
 
@@ -24,7 +25,11 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/product' element={<AllProduct />} />
+          <Route path='/products' element={<AllProduct />} />
           <Route path='/product/:category' element={<ProductCategory />} />
+          <Route path='/products/:category' element={<ProductCategory />} />
+          <Route path='/product/:category/:id' element={<ProductsDetalis />} />
+          <Route path='/products/:category/:id' element={<ProductsDetalis />} />
         </Routes>
       </div>
 
