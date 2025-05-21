@@ -57,10 +57,34 @@ export const AppContextProvider = ({ children }) => {
         fetchProducts()
     }, [])
 
+    const getCartCount = () => {
+        let totalCount = 0
+        for(const item in cartItems){
+            totalCount += cartItems[item]
+        }
+        return(
+            totalCount
+        )
+    }
+
+    const getCartAmout = () =>{
+        let totalAmout = 0;
+        for(const item in cartItems){
+            let itemInFo = products.find((item)=> products._id === item)
+            if (cartItems[item] > 0) {
+                totalAmout += itemInFo.offerPrice * cartItems[item]
+            }
+        }
+        return(
+            Math.floor(totalAmout * 100) / 100
+        )
+    }
+
 
     const value = {
         navigate, user, setuser, isSeller, setIsSeller, showUserLogin, setShowUserLogin, products,
-        currency, addToCart, updateCartItem, removeFromCart, cartItems, searchQuery, setSearchQuery
+        currency, addToCart, updateCartItem, removeFromCart, cartItems, searchQuery, setSearchQuery,
+        getCartAmout, getCartCount
     }
 
     return <AppContext.Provider value={value}>

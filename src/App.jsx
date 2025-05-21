@@ -8,6 +8,7 @@ import Login from './Components/Login.jsx'
 import AllProduct from './Pages/AllProduct.jsx'
 import ProductCategory from './Pages/ProductCategory.jsx'
 import ProductsDetalis from './Pages/ProductsDetalis.jsx'
+import CartPage from './Pages/CartPage.jsx'
 
 export default function App() {
 
@@ -30,6 +31,8 @@ export default function App() {
           <Route path='/products/:category' element={<ProductCategory />} />
           <Route path='/product/:category/:id' element={<ProductsDetalis />} />
           <Route path='/products/:category/:id' element={<ProductsDetalis />} />
+          <Route path='/cart' element={<CartPage />} />
+
         </Routes>
       </div>
 

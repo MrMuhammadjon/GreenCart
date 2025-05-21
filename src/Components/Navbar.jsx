@@ -12,7 +12,7 @@ export default function Navbar() {
         { id: 3, title: 'Contact', link: '/contcat' }
     ]
 
-    const { user, setuser, setShowUserLogin, navigate, searchQuery, setSearchQuery } = useAppContext()
+    const { user, setuser, setShowUserLogin, navigate, searchQuery, setSearchQuery, gerCartAmout, getCartCount } = useAppContext()
 
     const logout = async () => {
         setuser(null);
@@ -73,7 +73,11 @@ export default function Navbar() {
 
                     <div onClick={() => navigate('/cart')} className="relative cursor-pointer">
                         <img src={assets.nav_cart_icon} alt="" className='w-8 h-8' />
-                        <button className="absolute -top-2 -right-3 text-xl text-white bg-green-600 w-[25px] h-[25px] rounded-full">3</button>
+                        <button className="absolute -top-2 -right-3 text-xl text-white bg-green-600 w-[25px] h-[25px] rounded-full">
+                            {
+                                getCartCount()
+                            }
+                        </button>
                     </div>
 
                     {!user ? (
@@ -103,9 +107,20 @@ export default function Navbar() {
                     )}
                 </div>
 
-                <button onClick={() => open ? setOpen(false) : setOpen(true)} aria-label="Menu" className="sm:hidden">
-                    <img src={assets.menu_icon} alt='menu' />
-                </button>
+                <div className='flex items-center gap-6 sm:hidden'>
+                    <div onClick={() => navigate('/cart')} className="relative cursor-pointer">
+                        <img src={assets.nav_cart_icon} alt="" className='w-8 h-8' />
+                        <button className="absolute -top-2 -right-3 text-xl text-white bg-green-600 w-[25px] h-[25px] rounded-full">
+                            {
+                                getCartCount()
+                            }
+                        </button>
+                    </div>
+
+                    <button onClick={() => open ? setOpen(false) : setOpen(true)} aria-label="Menu" className="sm:hidden">
+                        <img src={assets.menu_icon} alt='menu' />
+                    </button>
+                </div>
 
                 {open && (
                     <div className={`${open ? 'flex' : 'hidden'} absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden z-40`}>
