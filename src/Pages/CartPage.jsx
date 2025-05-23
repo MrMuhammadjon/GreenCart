@@ -4,24 +4,37 @@ import { assets, dummyAddress } from '../assets/assets/assets'
 
 const CartPage = () => {
 
-    const { products, currency, cartItems, removeFromCart, getCartAmout, getCartCount, navigate, updateCartItem } = useAppContext()
+    const { navigate, user, setuser, isSeller, setIsSeller, showUserLogin, setShowUserLogin, products,
+        currency, addToCart, updateCartItem, removeFromCart, cartItems, searchQuery, setSearchQuery,
+        getCartAmout, getCartCount } = useAppContext()
     const [cartArry, setCartArry] = useState([])
     const [addresses, setAddresses] = useState(dummyAddress)
     const [showAddress, setShowAddress] = useState(false)
     const [selecteAddress, setSelectAdddres] = useState(dummyAddress[0])
     const [paymentOption, setPaymetOtion] = useState('COD')
 
-    const getCart = () => {
-        let tempArry = []
-        for (const key in cartItems) {
-            const product = products.find((item) => item._id === key)
-            product.quantity = cartItems[key]
-            tempArry.push(product)
+const getCart = () => {
+    let tempArray = [];
+    for (const key in cartItems) {
+        const product = products.find((item) => item._id === key);
+        if (product) {
+            // Clone the product before adding quantity
+            const productWithQty = { ...product, quantity: cartItems[key] };
+            tempArray.push(productWithQty);
         }
-        setCartArry(tempArry)
     }
+    setCartArry(tempArray);
+};
 
-    useEffect((item) => {
+
+    console.log(getCartAmout());
+
+
+    
+
+
+
+    useEffect(() => {
         if (products.length > 0 && cartItems) {
             getCart()
         }
@@ -60,8 +73,8 @@ const CartPage = () => {
 
                                     <div className="text-sm text-gray-600 space-y-1">
                                         <div className="flex items-center gap-2">
-                                            <span className="font-medium text-gray-700">Size:</span>
-                                            <span>{product.size || "N/A"}</span>
+                                            <span className="font-medium text-gray-700">Weight:</span>
+                                            <span>{product.weight || "N/A"}</span>
                                         </div>
 
                                         <div className="flex items-center gap-2">
@@ -72,7 +85,7 @@ const CartPage = () => {
                                                 id="qty"
                                                 className="border rounded px-2 py-1 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"
                                             >
-                                                {Array(100).fill('').map((_, index) => (
+                                                {Array(cartItems[product._id] > 10 ? cartItems[product._id] : 10).fill('').map((_, index) => (
                                                     <option key={index} value={index + 1}>{index + 1}</option>
                                                 ))}
                                             </select>
@@ -143,10 +156,10 @@ const CartPage = () => {
                         <span>Shipping Fee</span><span className="text-green-600">Free</span>
                     </p>
                     <p className="flex justify-between">
-                        <span>Tax (2%)</span><span>${currency}{getCartAmout() * 2 / 100}</span>
+                        <span>Tax (2%)</span><span>${currency}{getCartAmout()}</span>
                     </p>
                     <p className="flex justify-between text-lg font-medium mt-3">
-                        <span>Total Amount:</span><span>${currency}{getCartAmout() + getCartAmout() * 2 / 100}</span>
+                        <span>Total Amount:</span><span>${currency}{getCartAmout()}</span>
                     </p>
                 </div>
 

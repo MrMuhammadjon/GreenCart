@@ -37,11 +37,8 @@ export default function Navbar() {
                 {
                     reklamInfo.map((item, index) => {
                         return (
-                            <div key={index} className="flex items-center space-x-2.5  rounded-full p-1 text-sm">
-                                <div className="flex items-center space-x-1 bg-white text-green-600 rounded-3xl px-3 py-1">
-                                    <p>Exclusive Offer</p>
-                                </div>
-                                <p className="pr-3 text-white">{item.title}</p>
+                            <div key={index} className="bg-green-500 text-white text-sm text-center py-2">
+                                <p>🎉 {item.title}</p>
                             </div>
                         )
                     })

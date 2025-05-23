@@ -18,10 +18,10 @@ const BestSeller = () => {
             <h1 className='text-2xl md:text-3xl font-medium text-green-600'>Best Seller</h1>
 
             {loading ? (
-                <div class="flex flex-row gap-2 w-full h-vh items-center justify-center mt-40">
-                    <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce"></div>
-                    <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.3s]"></div>
-                    <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.5s]"></div>
+                <div className="flex flex-row gap-2 w-full h-vh items-center justify-center mt-40">
+                    <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce"></div>
+                    <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.3s]"></div>
+                    <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.5s]"></div>
                 </div>
             ) : (
                 <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-6">

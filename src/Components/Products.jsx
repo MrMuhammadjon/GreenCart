@@ -15,7 +15,7 @@ const Products = ({ product }) => {
     return product && (
         <>
 
-            <div onClick={() => { navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0, 0) }} className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 bg-white min-w-42 max-w-60 w-full shadow hover:shadow-lg transition-[0.3s]" data-aos="fade-up">
+            <div onClick={() => { navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0, 0) }} className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 bg-white min-w-42 max-w-60 w-full shadow hover:shadow-lg transition-[1s]" data-aos="fade-up">
                 <div className="group cursor-pointer flex items-center justify-center px-2" >
                     <img className="group-hover:scale-105 transition max-w-26 md:max-w-36"
                         src={product.image[0]} alt={product.name} />
