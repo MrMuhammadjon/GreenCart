@@ -13,26 +13,14 @@ const CartPage = () => {
     const [selecteAddress, setSelectAdddres] = useState(dummyAddress[0])
     const [paymentOption, setPaymetOtion] = useState('COD')
 
-const getCart = () => {
-    let tempArray = [];
-    for (const key in cartItems) {
-        const product = products.find((item) => item._id === key);
-        if (product) {
-            // Clone the product before adding quantity
-            const productWithQty = { ...product, quantity: cartItems[key] };
-            tempArray.push(productWithQty);
+    const getCart = () => {
+        let tempArray = [];
+        for (const key in cartItems) {
+            const product = products.find((item) => item._id === key);
+            product.quantity = cartItems[key]
         }
-    }
-    setCartArry(tempArray);
-};
-
-
-    console.log(getCartAmout());
-
-
-    
-
-
+        setCartArry(tempArray);
+    };
 
     useEffect(() => {
         if (products.length > 0 && cartItems) {
@@ -82,6 +70,7 @@ const getCart = () => {
                                                 Qty:
                                             </label>
                                             <select
+                                                onChange={e => updateCartItem(product._id, Number(e.target.value))}
                                                 id="qty"
                                                 className="border rounded px-2 py-1 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"
                                             >
@@ -95,7 +84,7 @@ const getCart = () => {
 
                             </div>
                             <p className="text-center">{currency}${product.offerPrice * product.quantity}</p>
-                            <button onClick={() => removeFromCart()} className="cursor-pointer mx-auto">
+                            <button onClick={() => removeFromCart(product._id)} className="cursor-pointer mx-auto">
                                 <img src={assets.remove_icon} alt="" />
                             </button>
                         </div>)

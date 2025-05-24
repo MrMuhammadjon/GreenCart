@@ -13,7 +13,6 @@ const ProductsDetalis = () => {
 
     const product = products.find((item) => item._id === id)
 
-    console.log('salom');
 
 
     useEffect(() => {
@@ -22,6 +21,9 @@ const ProductsDetalis = () => {
             productsCopy = productsCopy.filter((item) =>
                 product.category === item.category
             );
+            setRelatedProducts(
+                productsCopy.slice(0, 5)
+            )
             console.log(productsCopy);
 
             setRelatedProducts(productsCopy.slice(0, 5));
